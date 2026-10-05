@@ -13,7 +13,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->enum('status', ['Todo', 'doing', 'done'])->default('pending');
+            $table->enum('status', ['Todo', 'doing', 'done'])->default('Todo');
             $table->timestamps();
         });
     }

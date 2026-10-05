@@ -10,9 +10,9 @@ class TodoController extends Controller
 {
     public function index()
     {
-        $todo = Todo::where('user_id', Auth::id)->latest()->get();
+        $todos = Todo::where('user_id', Auth::id())->latest()->get();
 
-        return view('todos.index', compact('todo'));
+        return view('todos.index', compact('todos'));
     }
 
     public function store(Request $request)
@@ -38,9 +38,11 @@ class TodoController extends Controller
         return back()->with('success', 'Status berhasil diperbarui.');
     }
 
-    public function destroy(Todo $id)
+    public function destroy(Todo $todo)
     {
-        $id->delete();
+        abort_if($todo->user_id !== Auth::id(), 403);
+
+        $todo->delete();
 
         return back()->with('success', 'Todo berhasil dihapus.');
     }

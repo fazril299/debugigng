@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'isLoggedin' => \App\Http\Middleware\IsLoggedIn::class,
+            'isLoggedIn' => \App\Http\Middleware\IsLoggedIn::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

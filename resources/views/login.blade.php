@@ -25,6 +25,7 @@
         <div class="err">{{ $message }}</div>
     @enderror
     <form method="POST" action="{{ route('login.process') }}">
+        @csrf
         <label for="email">Email</label>
         <input type="email" id="email" name="email" value="{{ old('email') }}" required>
         <label for="password">Password</label>

@@ -22,7 +22,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->route('todo.index');
+            return redirect()->route('todos.index');
         }
 
         return back()->withErrors(['email' => 'Email atau password salah.'])->onlyInput('email');

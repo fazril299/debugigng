@@ -56,7 +56,7 @@
                 <div class="actions">
                     <form method="POST" action="{{ route('todos.status', $item->id) }}">
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
                         <select name="status" onchange="this.form.submit()">
                             @foreach (['Todo', 'doing', 'done'] as $s)
                                 <option value="{{ $s }}" @selected($item->status === $s)>{{ $s }}</option>

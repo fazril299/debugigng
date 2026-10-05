@@ -10,6 +10,13 @@ class User extends Authenticatable
 
     protected $hidden = ['password'];
 
+    protected function casts(): array
+    {
+        return [
+            'password' => 'hashed',
+        ];
+    }
+
     public function todos()
     {
         return $this->hasMany(Todo::class);
